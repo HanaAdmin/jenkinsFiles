@@ -14,6 +14,13 @@ pipeline {
 				 sh "ls -al"
             }
         }
+		stage('Build') {
+            steps {
+                
+				sh "mvn clean package"
+				 
+            }
+        }
         
     }
 }
