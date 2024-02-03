@@ -17,7 +17,14 @@ pipeline {
 		stage('Build') {
             steps {
                 
-				sh "mvn clean package"
+				withMaven(
+            // Maven installation declared in the Jenkins "Global Tool Configuration"
+            maven: 'MAVEN_3.5'
+            
+        ) {
+          // Run the maven build
+          sh "mvn clean package"
+        }
 				 
             }
         }
