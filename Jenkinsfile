@@ -1,5 +1,8 @@
 pipeline {
     agent any
+	tools {
+        maven 'MAVEN_3.5' 
+    }
 
     stages {
         stage('Hello') {
@@ -17,14 +20,7 @@ pipeline {
 		stage('Build') {
             steps {
                 
-				withMaven(
-            // Maven installation declared in the Jenkins "Global Tool Configuration"
-            maven: 'MAVEN_3.5'
-            
-        ) {
-          // Run the maven build
-          sh "mvn clean package"
-        }
+				 bat "mvn clean package"
 				 
             }
         }
