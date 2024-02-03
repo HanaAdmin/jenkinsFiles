@@ -10,6 +10,8 @@ pipeline {
         stage('downoalding') {
             steps {
                 git branch: 'main', credentialsId: 'GitHub_auth', url: 'https://github.com/HanaAdmin/Application.git'
+				
+				 sh "ls -al"
             }
         }
         
